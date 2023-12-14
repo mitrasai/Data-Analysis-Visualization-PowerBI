@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+            {
+                border: none;
+            }
+            .text-align{
+                margin-top: -3%;
+                margin-bottom: -9%;
+
+                padding: 10%;
+                margin-left: 30%;
+            }
+            .form-new{
+                margin-right: 22%;
+                margin-left: 20%;
+            }
+            .register-heading{
+                margin-left: 5%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register-heading h1{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register{
+                background: -webkit-linear-gradient(left, #055a4f, #00c6ff);
+                margin-top: 3%;
+                padding: 3%;
+                border-radius: 2.5rem;
+            }
+            .btnSubmit
+            {
+                width: 50%;
+                border-radius: 1rem;
+                padding: 1.5%;
+                color: #fff;
+                background-color: #03612e;
+                border: none;
+                cursor: pointer;
+                margin-right: 6%;
+                color: rgb(246, 246, 252);
+                margin-top: 4%;
+            }
+    </style>
+
+</head>
+<body>
+    <div class="container register">
+            <div class="row">
+                <div class="col-md-12">
+                   <div class="p">
+                        <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h2 class="register-heading">KEVIN COOKIE COMPANY</h2>
+                            <div class="row register-form">
+                                <div class="col-md-12">
+                                    <form method="post" autocomplete="off" name="submit-to-google-sheet">
+                                        <div class="form-group">
+                                            <input type="text" name="country" class="form-control" placeholder="Country *" value="" required=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="product" class="form-control" placeholder="Product Name *" value="" required=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="int" name="units sold" class="form-control" placeholder="Units Sold*" value="" required=""/>
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="double" name="revenue per cookie" class="form-control" placeholder="Revenue Per Cookie*" value="" required=""/>
+                                        </div>
+                                         <div class="form-group">
+                                            <input type="double" name="cost per cookie" class="form-control" placeholder="Cost Per Cookie*" value="" required=""/>
+                                        </div>
+                                           <div class="form-group">
+                                            <input type="double" name="revenue" class="form-control" placeholder="Revenue*" value="" required=""/>
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="double" name="cost" class="form-control" placeholder="Cost*" value="" required=""/>
+                                        </div>
+                                         <div class="form-group">
+                                            <input type="double" name="profit" class="form-control" placeholder="Profit*" value="" required=""/>
+                                        </div>
+                                         <div class="form-group">
+                                            <input type="date" name="date" class="form-control" placeholder="Date*" value="" required=""/>
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="int" name="month number" class="form-control" placeholder="Month Number*" value="" required=""/>
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="text" name="month name" class="form-control" placeholder="Month Name*" value="" required=""/>
+                                        </div>
+                                          <div class="form-group">
+                                            <input type="int" name="year" class="form-control" placeholder="Year*" value="" required=""/>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="submit" name="submit" class="btnSubmit btn-block" value="Submit-Data" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+     </div>
+<script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbwLX78cbJs-bWUmp4hKRckNaMRZNnpZ_LFeoGr-EzCj7hjQoWj5UBPKLhtSLA5Aordd/exec'
+			const form = document.forms['submit-to-google-sheet']
+		  
+			form.addEventListener('submit', e => {
+			  e.preventDefault()
+			  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => alert("Thank you! your form is submitted successfully." ))
+				.then(() => {  window.location.reload(); })
+				.catch(error => console.error('Error!', error.message))
+			})
+		  </script>      
+</body>
+</html>
